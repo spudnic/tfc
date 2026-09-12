@@ -140,3 +140,8 @@ tasks:
     deps: [clean, rust-build]
     cmds:
       - task --parallel rust-format rust-lint rust-test
+
+  test:
+    desc: "ensure CLAUDE.md is less than 200 lines"
+    cmds:
+      - sh -c "[ $(wc -l < CLAUDE.md) -lt 200 ]"
